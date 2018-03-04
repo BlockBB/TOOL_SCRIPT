@@ -1,0 +1,26 @@
+import os,subprocess,time
+
+X = 950
+Y1 = 300
+Y2 = 1400
+Y_GAP =45
+
+def tap(y):
+    cmd = ("adb shell input tap %s %s"%(X,y))
+    subprocess.Popen(cmd,shell=True)
+    print cmd
+    time.sleep(0.6)
+
+def main():
+    os.system("adb devices")
+    while(1):
+        map(tap,xrange(Y1,Y2,Y_GAP))
+
+# pls hua hong up in your phone
+
+        subprocess.Popen("adb shell input swipe 800 1400 800 650",shell=True,stdout=subprocess.PIPE)
+        time.sleep(2.0)
+        subprocess.Popen("adb shell input swipe 850 1400 850 650",shell=True,stdout=subprocess.PIPE)
+        time.sleep(3.0)
+if __name__ == "__main__":
+    main()
